@@ -1,0 +1,50 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           oaiDataProvider
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              oaiDataProvider
+    plural:                oaiDataProviders
+    route_prefix:          oai_data_provider
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        url:
+          label: URL
+        is_enabled:
+          label: Enabled?
+        last_update_date:
+          label: Last update
+        last_error:
+          label: Last error message
+          help: This field will be empty after successful harvesting
+        nb_oai_harvested_datas:
+          label: Harvested records
+      list:
+        title: OAI-PMH Data Providers
+        display: [name, url, is_enabled, _nb_oai_harvested_datas, _last_update_date]
+        batch_actions:
+          harvest:
+            action: harvest
+          enable:
+            action: enable
+          disable:
+            action: disable
+          _delete:
+        object_actions:
+          _edit:
+          harvest:
+            label: Harvest
+            action: harvest
+          _delete:
+      filter:  ~
+      form:    ~
+      edit:
+        title: Edit OAI-PMH Data Provider
+      new:
+        title: Add a new OAI-PMH Data Provider

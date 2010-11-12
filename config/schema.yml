@@ -1,0 +1,67 @@
+connection: propel
+
+package: plugins.dcOAIServiceProviderPlugin.lib.model
+
+classes:
+  oaiDataProvider:
+    tableName: oai_data_provider
+    columns:
+      id:
+      name:
+        type: varchar(255)
+      url:
+        type: varchar(255)
+        required: true
+        unique: true
+      metadata_prefix:
+        type: varchar(255)
+        required: true
+        default: 'oai_dc'
+      is_enabled:
+        type: boolean
+        default: true
+      last_update_date:
+        type: timestamp
+      last_error:
+        type: longvarchar
+      created_at:
+      updated_at:
+
+  oaiHarvestedData:
+    tableName: oai_harvested_data
+    columns:
+      id:
+      identifier:
+        type: varchar(255)
+        required: true
+        unique: true
+      oai_data_provider_id:
+        type: integer
+        required: true
+        foreignClass: oaiDataProvider
+        foreignReference: id
+        onDelete: cascade
+      datestamp:
+        type: timestamp
+      set_spec:
+        type: longvarchar
+      title:
+        type: longvarchar
+      creator:
+        type: longvarchar
+      subject:
+        type: longvarchar
+      description:
+        type: longvarchar
+      date:
+        type: timestamp
+      publisher:
+        type: longvarchar
+      type:
+        type: longvarchar
+      dc_identifier:
+        type: varchar(255)
+      relation:
+        type: varchar(255)
+      created_at:
+      updated_at:

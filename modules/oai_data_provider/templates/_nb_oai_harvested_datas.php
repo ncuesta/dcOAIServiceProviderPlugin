@@ -1,0 +1,1 @@
+<?php echo link_to($oaiDataProvider->countoaiHarvestedDatas(), array('sf_route' => 'oai_harvested_data_collection', 'action' => 'listByDataProvider', 'id' => $oaiDataProvider->getId()), array('title' => __('Click here to list the harvested records'), 'class' => 'oai_harvested_records')) ?>

@@ -1,0 +1,50 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           oaiHarvestedData
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              oaiHarvestedData
+    plural:                oaiHarvestedDatas
+    route_prefix:          oai_harvested_data
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        oai_data_provider_id:
+          label: OAI-PMH Data Provider
+        datestamp:
+          label: Publication date
+          date_format: P
+        set_spec:
+          label: Set
+        dc_identifier:
+          label: DC Identifier
+        created_at:
+          label: Harvesting date
+        updated_at:
+          label: Last update
+      list:
+        title: OAI-PMH harvested data
+        sort: [datestamp, desc]
+        display: [identifier, datestamp, title, updated_at]
+        layout: stacked
+        params: |
+          <div class="oai_title">%%title%%</div>
+          <div class="oai_detail">%%_details%%</div>
+        object_actions:
+          _show:
+            label: Full record
+            action: show
+          _delete:
+        actions:
+          data_providers:
+            action: goToDataProviders
+            label: List OAI-PMH Data Providers
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

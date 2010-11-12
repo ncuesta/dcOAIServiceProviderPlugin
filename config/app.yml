@@ -1,0 +1,3 @@
+all:
+  oai_service_provider_plugin:
+    parser_class: 'DublinCoreOAIParser'

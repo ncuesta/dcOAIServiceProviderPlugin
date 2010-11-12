@@ -1,0 +1,3 @@
+all:
+  stylesheets: [/dcOAIServiceProviderPlugin/css/main.css]
+  javascripts: [/dcOAIServiceProviderPlugin/js/common.js]

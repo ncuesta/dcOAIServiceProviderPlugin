@@ -1,0 +1,17 @@
+oai_data_provider:
+  class: sfPropelRouteCollection
+  options:
+    model:                oaiDataProvider
+    module:               oai_data_provider
+    prefix_path:          /oai_data_provider
+    column:               id
+    with_wildcard_routes: true
+
+oai_harvested_data:
+  class: sfPropelRouteCollection
+  options:
+    model:                oaiHarvestedData
+    module:               oai_harvested_data
+    prefix_path:          /oai_harvested_data
+    column:               id
+    with_wildcard_routes: true
